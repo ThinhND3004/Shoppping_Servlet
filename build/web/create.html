@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Create User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Input User</div>
+        <form action="MainController" method="POST">
+            
+            UserID: <input type="text" name="userID" required=""/>
+            FullName: <input type="text" name="fullName" required=""/>
+            RoleID: <input type="text" name="roleID" value="US"/>
+            Password: <input type="password" name="password" required=""/>
+            Confirm: <input type="password" name="confirm" required=""/>
+            <br><input type="submit" name="action" value="Create"/>
+            <input type="reset" value="Reset"/>
+            
+            
+        </form>
+    </body>
+</html>
