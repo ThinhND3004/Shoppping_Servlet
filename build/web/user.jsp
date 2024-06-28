@@ -59,9 +59,7 @@
                 <p>View and manage your personal information</p>
             </div>
 
-            <c:if test="${sessionScope.LOGIN_USER.userID == null || sessionScope.LOGIN_USER.roleID ne 'US'}">
-                <c:redirect url="login.jsp"></c:redirect>
-            </c:if>
+
 
             <div class="card profile-card">
                 <div class="card-body">
