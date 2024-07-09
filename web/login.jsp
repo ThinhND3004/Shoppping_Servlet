@@ -49,14 +49,19 @@
         <div class="container">
             <div class="form-container">
                 <h1>Login</h1>
+                <c:set var="cookie" value="${pageContext.cookies}">
                 <form id="login-form" action="MainController" method="POST">
                     <div class="form-group">
                         <label for="userID">User ID</label>
-                        <input type="text" class="form-control" id="userID" name="userID" required>
+                        <input type="text" class="form-control" id="userID" name="userID" value="${cookie.userID}" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" value="${cookie.password}" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember Me</label>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LcNiwIqAAAAAKRVj_Ydpof98oIQfTY0NuPpLalk"></div>
                     <div id="errorCapcha" style="color: red"></div>

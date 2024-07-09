@@ -8,6 +8,7 @@ package sample.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,9 +35,13 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+
+ 
+
         try {
             String userID = request.getParameter("userID");
             String password = request.getParameter("password");
+            String rememberMe = request.getParameter("rememberMe");
 
             UserDAO dao = new UserDAO();
             UserDTO dto = dao.checkLogin(userID, password);
@@ -52,6 +57,22 @@ public class LoginController extends HttpServlet {
                     url = USER_PAGE;
                 } else {
                     request.setAttribute("ERROR", ERROR_MESSAGE);
+                }
+                if ("on".equals(rememberMe)) {
+                    Cookie userIDCookie = new Cookie("userID", userID);
+                    Cookie passwordCookie = new Cookie("password", password);
+                    userIDCookie.setMaxAge(30 * 60);
+                    passwordCookie.setMaxAge(30 * 60);
+                    response.addCookie(userIDCookie);
+                    response.addCookie(passwordCookie);
+                } else {
+                    // Clear cookies if "Remember Me" is not checked
+                    Cookie userIDCookie = new Cookie("userID", "");
+                    Cookie passwordCookie = new Cookie("password", "");
+                    userIDCookie.setMaxAge(0);
+                    passwordCookie.setMaxAge(0);
+                    response.addCookie(userIDCookie);
+                    response.addCookie(passwordCookie);
                 }
             } else {
                 request.setAttribute("ERROR", INCORRECT_MESSAGE);

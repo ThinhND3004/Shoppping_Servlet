@@ -137,6 +137,7 @@ public class UserDAO {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
+        int checkInt = 0;
 
         try {
             conn = DBUtils.getConnection();
@@ -145,9 +146,9 @@ public class UserDAO {
                 ptm.setString(1, updateUser.getFullName());
                 ptm.setString(2, updateUser.getRoleID());
                 ptm.setString(3, updateUser.getUserID());
-                rs = ptm.executeQuery();
-                if (rs.next()) {
-                    check = false;
+                checkInt = ptm.executeUpdate();
+                if (checkInt != 0) {
+                    check = true;
                 }
             }
         } finally {

@@ -33,7 +33,7 @@ public class SearchController extends HttpServlet {
         HttpSession session = request.getSession();
         try {
             String search = request.getParameter("search");
-            request.setAttribute("SEARCH_VALUE", search);
+            session.setAttribute("SEARCH_VALUE", search);
             
             
             

@@ -30,38 +30,40 @@ public class UpdateController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-        private static final String ERROR = "admin.jsp";
+    private static final String ERROR = "admin.jsp";
     private static final String SUCCESS = "SearchController";
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
             HttpSession session = request.getSession();
-            
+
             UserDTO dto = (UserDTO) session.getAttribute("LOGIN_USER");
-            
+
             String userID = request.getParameter("userID");
             String fullName = request.getParameter("fullName");
             String password = request.getParameter("password");
             String roleID = request.getParameter("roleID");
             String search = request.getParameter("search");
-            
+            session.setAttribute("SEARCH_VALUE", search);
+
             UserDAO dao = new UserDAO();
-            
+
             UserDTO updateUser = new UserDTO(userID, fullName, roleID, password);
-            
+
             boolean checkUpdate = dao.update(updateUser);
-            if(checkUpdate)
-            {
-                if(dto.getUserID().equals(userID))
-                {
+            if (checkUpdate) {
+                url = SUCCESS;
+                if (dto.getUserID().equals(userID)) {
                     session.setAttribute("LOGIN_USER", dto);
+                    
                 }
             }
             request.setAttribute("UPDATE_RESULT", checkUpdate);
-            url = SUCCESS;
+            
+            
 
         } catch (Exception e) {
             log("Error at LoginServlet: " + e.toString());

@@ -27,7 +27,7 @@
             <c:url var="logoutLink" value="MainController">
                 <c:param name="action" value="Logout"></c:param>
             </c:url>
-            <a href="${logoutLink}" class="btn btn-danger mb-3">Logout JSTL</a>
+            <a href="${logoutLink}" class="btn btn-danger mb-3">Logout </a>
 
             <form action="MainController" method="POST" class="form-inline mb-4">
                 <div class="form-group mr-2">
