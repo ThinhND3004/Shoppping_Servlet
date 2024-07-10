@@ -22,8 +22,8 @@ import sample.user.UserDTO;
  */
 public class RemoveController extends HttpServlet {
 
-     private static final String SUCCESS = "ViewCart.jsp";
-          private static final String ERROR = "ViewCart.jsp";
+     private static final String SUCCESS = "viewCart.jsp";
+          private static final String ERROR = "viewCart.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

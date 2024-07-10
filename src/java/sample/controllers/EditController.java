@@ -21,8 +21,8 @@ import sample.shopping.Clothes;
  */
 public class EditController extends HttpServlet {
 
-    private static final String ERROR = "ViewCart.jsp";
-    private static final String SUCCESS = "ViewCart.jsp";
+    private static final String ERROR = "viewCart.jsp";
+    private static final String SUCCESS = "viewCart.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

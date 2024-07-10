@@ -21,7 +21,7 @@ import sample.user.UserDTO;
  */
 public class CheckOutController extends HttpServlet {
 
-    private static final String ERROR = "ViewCart.jsp";
+    private static final String ERROR = "viewCart.jsp";
     private static final String SUCCESS = "ShoppingController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

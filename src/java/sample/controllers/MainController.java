@@ -54,7 +54,7 @@ public class MainController extends HttpServlet {
     private static final String ADD_CONTROLLER = "AddController";
 
     private static final String VIEW = "View";
-    private static final String VIEW_CONTROLLER = "ViewCart.jsp";
+    private static final String VIEW_CONTROLLER = "viewCart.jsp";
 
     private static final String REMOVE = "Remove";
     private static final String REMOVE_CONTROLLER = "RemoveController";
